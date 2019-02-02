@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Options">
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backback" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:background="@android:color/white"
+        android:scaleType="centerCrop" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:alpha="0.99"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+            <EditText
+                android:id="@+id/EnglishTittle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:hint="English Tittle"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/DuaInArabic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="start"
+                android:hint="Dua in Arabic"
+                android:lines="3"
+                android:maxLines="3"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+
+            <EditText
+                android:id="@+id/EnglishTranslate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="start"
+                android:hint="English Translate"
+                android:lines="3"
+                android:maxLines="3"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+            <EditText
+                android:id="@+id/UrduTittle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:hint="Urdu Tittle"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/UrduTranslate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="start"
+                android:hint="Urdu Translate"
+                android:lines="3"
+                android:maxLines="3"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+            <EditText
+                android:id="@+id/Roman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="start"
+                android:hint="Roman Translate"
+                android:lines="3"
+                android:maxLines="3"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+            <EditText
+                android:id="@+id/EnglishRef"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:hint="English Reference"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp" />
+
+            <br.com.safety.audio_recorder.AudioRecordButton
+                android:id="@+id/audio_record_button"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
+
+            <Button
+                android:id="@+id/Save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/shape_button"
+                android:text="ADD"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

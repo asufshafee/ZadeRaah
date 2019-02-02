@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Zad_e_Raah</string>
+    <string name="google_maps_key">AIzaSyAl_KkpIB-kNu2GIhc4Kxejd0DDESQWMRM</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_umrah__map">Umrah_Map</string>
+
+</resources>

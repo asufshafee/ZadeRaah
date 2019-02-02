@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shapef"
+    android:orientation="vertical"
+    tools:context=".Details">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="45dp"
+                    android:tint="@android:color/holo_red_dark"
+                    android:src="@drawable/closeicon"
+                    android:layout_height="45dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:id="@+id/WajibAndFarz"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="Wajib and Farz"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/Tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Ihram"
+                android:textColor="@android:color/white"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/Image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="15dp"
+                />
+
+            <WebView
+                android:id="@+id/des"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_height="match_parent"></WebView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:text="لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ ، لَا شَرِيكَ لَكَ"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="What is the purpose of Ihram"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:text="Ihram is not a piece of clothing only; it has great importance for Hajj as well as Umra. It is quite understandable that many disciplines of life, occupations and educational institutes require a certain dress code or uniform in order to show discipline and equality. Hospitals, schools, colleges, army, airlines, police, show this discipline. Therefore, compulsory status of Ihram is quite comprehensible. The biggest gathering of Islam is watched all around the world with millions of Muslims in simple white robe performing similar actions to please Allah. \n
+The significance of Ihram is manifold. First of all, white color symbolizes purity, piousness and cleanliness. The religion of Islam spreads the message of outer and inner cleanliness, purity and simplicity. In this sense, the dress code for Hajj truly portrays the spirit of Islam. Importance of Ihram can be understood by the fact that if Ihram gets dirty, or liquid scent is used on it, it has to be replaced with a new Ihram to continue the process of Hajj. If Ihram is not replaced with a new one the Hajj or Umra becomes invalid."
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="gone"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Why do we do Ihram"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:visibility="gone"
+                android:padding="5dp"
+                android:text="The reason why he takes off his ordinary clothes is so that he will be completely humbled before his Lord, may He be glorified and exalted, both outwardly and inwardly, because wearing the rida’ (upper garment) and izaar (lower garment) is a kind of humbling oneself. You will see the richest of people who could wear the finest of garments looking like the poorest of people, because he is humbled completely. It is also a show of unity among the Muslims, for they become one ummah even in dress; they circumambulate one building, they stay overnight in one place, they stone the Jamaraat in one place.
+
+A third benefit is that the individual is reminded that when he departs this world, he will only depart in garments like these. He will never depart in the finest clothing; rather he will depart in a shroud. And Allah is the One Whose help we seek. End quote. "
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

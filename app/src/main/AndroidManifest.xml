@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.zaderaah">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".Session.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".Options"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".Settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".AddNew"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".PrayList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".Details"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity
+            android:name=".Map"
+            android:label="hajj Map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fav"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity android:name=".GoogleMap" />
+        <activity
+            android:name=".Map1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".New_hajjMap_WithAnimation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Umrah_Map"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_umrah__map"
+            android:theme="@style/AppTheme"></activity>
+    </application>
+
+</manifest>
