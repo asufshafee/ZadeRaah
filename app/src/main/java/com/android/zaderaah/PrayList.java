@@ -27,6 +27,8 @@ import com.android.zaderaah.Session.MyApplication;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -61,7 +63,7 @@ public class PrayList extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(), "Error in Database", Toast.LENGTH_LONG).show();
         }
-        if (myApplication.getLanguage().equals("eng"))
+        if (myApplication.getLanguage().equals("Eng"))
         {
             getSupportActionBar().setTitle(myApplication.getOptions() + " Prayer's");
         }else {
@@ -99,6 +101,7 @@ public class PrayList extends AppCompatActivity {
             String Audio = cursor.getString(7);
             String Type = cursor.getString(9);
             String Roman = cursor.getString(10);
+            String Counter = cursor.getString(11);
 
 
             DuaObj duaObj = new DuaObj();
@@ -111,6 +114,11 @@ public class PrayList extends AppCompatActivity {
             duaObj.setFav(Check);
             duaObj.setAudiopath(Audio);
             duaObj.setRoman(Roman);
+            duaObj.setCounter(Counter);
+            Log.d("",Roman);
+            if (Roman==null)
+                Log.d("","");
+
             duaObj.setUrduTrans(UrduTranslate);
             if (myApplication.getOptions().equals(Type))
                 if (!ID.equals(""))
@@ -129,6 +137,7 @@ public class PrayList extends AppCompatActivity {
                 Audio = cursor.getString(7);
                 Type = cursor.getString(9);
                 Roman = cursor.getString(10);
+                 Counter = cursor.getString(11);
 
                 duaObj = new DuaObj();
                 duaObj.setID(ID);
@@ -140,7 +149,11 @@ public class PrayList extends AppCompatActivity {
                 duaObj.setUrduTrans(UrduTranslate);
                 duaObj.setFav(Check);
                 duaObj.setRoman(Roman);
+                Log.d("",Roman);
                 duaObj.setAudiopath(Audio);
+                duaObj.setCounter(Counter);
+                if (Roman==null)
+                    Log.d("","");
                 if (myApplication.getOptions().equals(Type))
                     praylist.add(duaObj);
 
@@ -168,6 +181,39 @@ public class PrayList extends AppCompatActivity {
                 praylistFinal.add(duaObj);
             }
         }
+
+        Collections.reverse(praylistFinal);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mAdapter = new ListAdapter(praylistFinal, PrayList.this, dbManager);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+    }
+
+
+    public void ShowListSort() {
+
+
+        praylistFinal=new ArrayList<>();
+        for (DuaObj  duaObj:praylist)
+        {
+            if (checkExist(duaObj))
+            {
+                praylistFinal.add(duaObj);
+            }
+        }
+
+        Collections.sort(praylistFinal, new Comparator<DuaObj>()
+        {
+            @Override
+            public int compare(DuaObj text1, DuaObj text2)
+            {
+                return text1.getEngTittle().compareToIgnoreCase(text2.getEngTittle());
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new ListAdapter(praylistFinal, PrayList.this, dbManager);
@@ -215,11 +261,11 @@ public class PrayList extends AppCompatActivity {
                     if (!CheckIfExist(EngT, "Hajj"))
                         dbManager.insert(EngT, Arabic, TimeForAayateEng
                                 , EngTran, urduT,
-                                urduTran, "Hajj", false, "",Roman);
-                    if (!CheckIfExist(EngT, "Umrah"))
-                        dbManager.insert(EngT, Arabic, TimeForAayateEng
-                                , EngTran, urduT,
-                                urduTran, "Umrah", false, "",Roman);
+                                urduTran, "Hajj", false, "",Roman,"1","");
+//                    if (!CheckIfExist(EngT, "Umrah"))
+//                        dbManager.insert(EngT, Arabic, TimeForAayateEng
+//                                , EngTran, urduT,
+//                                urduTran, "Umrah", false, "",Roman,"1");
                 }
 
             }
@@ -244,11 +290,11 @@ public class PrayList extends AppCompatActivity {
                         if (!CheckIfExist(EngT, "Hajj"))
                             dbManager.insert(EngT, Arabic, TimeForAayateEng
                                     , EngTran, urduT,
-                                    urduTran, "Hajj", false, "",Roman);
-                        if (!CheckIfExist(EngT, "Umrah"))
-                            dbManager.insert(EngT, Arabic, TimeForAayateEng
-                                    , EngTran, urduT,
-                                    urduTran, "Umrah", false, "",Roman);
+                                    urduTran, "Hajj", false, "",Roman,"1","");
+//                        if (!CheckIfExist(EngT, "Umrah"))
+//                            dbManager.insert(EngT, Arabic, TimeForAayateEng
+//                                    , EngTran, urduT,
+//                                    urduTran, "Umrah", false, "",Roman,"1");
                     }
 
 
@@ -294,6 +340,9 @@ public class PrayList extends AppCompatActivity {
         String Check = cursor.getString(8);
         String Audio = cursor.getString(7);
         String Type = cursor.getString(9);
+        String Type1 = cursor.getString(10);
+        String Counter = cursor.getString(11);
+
 
 
         DuaObj duaObj = new DuaObj();
@@ -307,6 +356,8 @@ public class PrayList extends AppCompatActivity {
         duaObj.setFav(Check);
         duaObj.setAudiopath(Audio);
         duaObj.setUrduTrans(UrduTranslate);
+        duaObj.setRoman(Type1);
+        duaObj.setCounter(Counter);
             praylist.add(duaObj);
 
 
@@ -321,6 +372,8 @@ public class PrayList extends AppCompatActivity {
             Check = cursor.getString(8);
             Audio = cursor.getString(7);
             Type = cursor.getString(9);
+            Type1 = cursor.getString(10);
+            Counter = cursor.getString(11);
 
             duaObj = new DuaObj();
             duaObj.setID(ID);
@@ -333,6 +386,9 @@ public class PrayList extends AppCompatActivity {
             duaObj.setUrduTrans(UrduTranslate);
             duaObj.setFav(Check);
             duaObj.setAudiopath(Audio);
+            duaObj.setRoman(Type1);
+            duaObj.setCounter(Counter);
+
                 praylist.add(duaObj);
 
         }
@@ -405,6 +461,15 @@ public class PrayList extends AppCompatActivity {
             }
         }
 
+        if (item.getItemId()==R.id.SortABC)
+        {
+            ShowListSort();
+        }
+
+        if (item.getItemId()==R.id.Sort)
+        {
+            ShowList();
+        }
 
 
         return true;
@@ -428,13 +493,9 @@ public class PrayList extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
+    @Override
+    protected void onResume() {
+        GetDataFromDatabase();
+        super.onResume();
+    }
 }

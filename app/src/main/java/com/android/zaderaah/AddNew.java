@@ -17,7 +17,7 @@ import br.com.safety.audio_recorder.RecordingItem;
 public class AddNew extends AppCompatActivity {
 
 
-    EditText EnglishTittle, DuaInArabic, EnglishRef, EnglishTranslate, UrduTittle, UrduTranslate,Roman;
+    EditText EnglishTittle, DuaInArabic, EnglishRef, EnglishTranslate, UrduTittle, UrduTranslate,Roman,Counter;
     MyApplication myApplication;
     private AudioRecordButton audioRecordButton;
     String path;
@@ -38,6 +38,7 @@ public class AddNew extends AppCompatActivity {
         UrduTittle = findViewById(R.id.UrduTittle);
         UrduTranslate = findViewById(R.id.UrduTranslate);
         Roman=findViewById(R.id.Roman);
+        Counter=findViewById(R.id.Counter);
 
         findViewById(R.id.Save).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +78,13 @@ public class AddNew extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please Enter Roman Translate", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (Counter.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please Enter Couunter", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (path == null || path.equals("")) {
                     Toast.makeText(getApplicationContext(), "Please Record Audio", Toast.LENGTH_SHORT).show();
                     return;
-
                 }
 
 
@@ -88,7 +92,7 @@ public class AddNew extends AppCompatActivity {
                 dbManager.open();
                 dbManager.insert(EnglishTittle.getText().toString(), DuaInArabic.getText().toString(), EnglishRef.getText().toString()
                         , EnglishTranslate.getText().toString(), UrduTittle.getText().toString(),
-                        UrduTranslate.getText().toString(), myApplication.getOptions(), false, path,Roman.getText().toString());
+                        UrduTranslate.getText().toString(), myApplication.getOptions(), false, path,Roman.getText().toString(),Counter.getText().toString(),"");
 
                 Toast.makeText(getApplicationContext(), "Pray Saved", Toast.LENGTH_SHORT).show();
                 dbManager.close();

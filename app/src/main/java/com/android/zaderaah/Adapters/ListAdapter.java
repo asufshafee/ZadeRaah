@@ -71,6 +71,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                myApplication.setList(mDataset);
+                myApplication.setPosition(position);
                 myApplication.setCurrent(mDataset.get(position));
                 activity.startActivity(new Intent(activity.getApplicationContext(), Details.class));
 

@@ -5,14 +5,26 @@ import android.content.SharedPreferences;
 
 import com.android.zaderaah.Objects.DuaObj;
 
+import java.util.List;
+
 public class MyApplication extends Application {
 
 
-    String Options = "";
-    String Language = "eng";
+    String Options = "Hajj";
+    String Language = "Eng";
     DuaObj Current;
+    List<DuaObj> List;
     String First;
 
+    public java.util.List<DuaObj> getList() {
+        return List;
+    }
+
+    public void setList(java.util.List<DuaObj> list) {
+        List = list;
+    }
+
+    int position=0;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -55,6 +67,15 @@ public class MyApplication extends Application {
 
     public void setOptions(String options) {
         Options = options;
+    }
+
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }
 

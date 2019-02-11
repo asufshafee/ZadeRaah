@@ -38,6 +38,13 @@ public class Home extends AppCompatActivity {
 //
 //            }
 //        });
+
+        findViewById(R.id.History).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), History.class));
+            }
+        });
         findViewById(R.id.Map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -118,6 +118,21 @@
                 android:paddingTop="5dp" />
 
             <EditText
+                android:id="@+id/Counter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="start"
+                android:hint="Counter"
+                android:lines="3"
+                android:maxLines="3"
+                android:inputType="numberDecimal"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp" />
+
+            <EditText
                 android:id="@+id/EnglishRef"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

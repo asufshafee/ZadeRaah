@@ -68,7 +68,11 @@
             android:label="@string/title_activity_umrah__map"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
-        <activity android:name=".KMhajjmap"></activity>
+        <activity android:name=".KMhajjmap" />
+        <activity
+            android:name=".Update"
+            android:theme="@style/AppThemeWithActionbar" />
+        <activity android:name=".History"      android:theme="@style/AppThemeWithActionbar"></activity>
     </application>
 
 </manifest>

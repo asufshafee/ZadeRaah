@@ -21,6 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String FAV = "FAV";
     public static final String Roman = "Roman";
+    public static final String Counter = "Counter";
+    public static final String His = "His";
 
     public static final String URDUTRANSLATE = "URDUTRANSLATE";
     public static final String TYPE = "TYPECHCEK";
@@ -44,7 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "" + TYPE + " TEXT," +
             "" + AUDIO + " TEXT," +
             "" + FAV + " TEXT," +
-            " " + Roman + " TEXT);";
+            "" + Roman + " TEXT," +
+            "" + Counter + " TEXT," +
+            " " + His + " TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);

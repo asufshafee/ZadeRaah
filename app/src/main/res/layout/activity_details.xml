@@ -24,6 +24,7 @@
   <ScrollView
       android:layout_width="match_parent"
       android:scrollbars="vertical"
+      android:layout_marginBottom="100dp"
       android:layout_height="wrap_content">
       <LinearLayout
           android:layout_width="match_parent"
@@ -34,17 +35,16 @@
 
           <ScrollView
               android:layout_width="match_parent"
-              android:layout_height="0dp"
-              android:layout_weight="1"
+              android:layout_height="wrap_content"
               android:background="@drawable/round_shape">
 
-              <TextView
+              <com.android.zaderaah.Session.ZoomTextView
                   android:id="@+id/ArabicDua"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_gravity="center"
                   android:gravity="center"
-                  android:padding="4dp"
+                  android:padding="10dp"
                   android:text="Some Testing"
                   android:textColor="@android:color/white"
                   android:textSize="22dp" />
@@ -52,18 +52,17 @@
 
           <ScrollView
               android:layout_width="match_parent"
-              android:layout_height="0dp"
-              android:layout_weight="1"
+              android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
               android:layout_gravity="center"
               android:background="@drawable/round_shape">
-              <TextView
+              <com.android.zaderaah.Session.ZoomTextView
                   android:id="@+id/Translation"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_marginTop="10dp"
                   android:layout_gravity="center"
-                  android:padding="4dp"
+                  android:padding="10dp"
                   android:layout_marginBottom="10dp"
                   android:gravity="center"
                   android:text="Some Testing"
@@ -74,15 +73,13 @@
 
           <ScrollView
               android:layout_width="match_parent"
-              android:layout_height="0dp"
+              android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_weight="1"
-              android:minHeight="150dp"
               android:layout_marginBottom="5dp"
               android:layout_marginTop="10dp"
               android:background="@drawable/round_shape">
 
-              <TextView
+              <com.android.zaderaah.Session.ZoomTextView
                   android:id="@+id/Roman"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -102,43 +99,46 @@
 
           <include layout="@layout/custom_audio" />
 
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
-              android:visibility="gone"
-              android:layout_marginBottom="5dp"
-              android:background="@drawable/round_shape"
-              android:gravity="center"
-              android:orientation="horizontal"
-              android:padding="10dp">
 
-
-              <ImageView
-                  android:id="@+id/Back"
-                  android:layout_width="45dp"
-                  android:layout_height="35dp"
-                  android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
-                  android:tint="@android:color/white" />
-
-              <TextView
-                  android:layout_width="0dp"
-                  android:layout_height="match_parent"
-                  android:layout_weight="1"
-                  android:gravity="center"
-                  android:textColor="@color/colorPrimary"
-                  android:textSize="18dp"
-                  android:visibility="invisible" />
-
-              <ImageView
-                  android:id="@+id/Next"
-                  android:layout_width="45dp"
-                  android:layout_height="35dp"
-                  android:src="@drawable/ic_navigate_next_black_24dp"
-                  android:tint="@android:color/white" />
-          </LinearLayout>
       </LinearLayout>
   </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_shape"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+            android:tint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/Counter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:layout_gravity=""
+            android:gravity="center"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/Next"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:tint="@android:color/white" />
+    </LinearLayout>
 
 
 </RelativeLayout>

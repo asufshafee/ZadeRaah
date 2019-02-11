@@ -81,7 +81,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/round_shape">
 
-                        <TextView
+                        <com.android.zaderaah.Session.ZoomTextView
                             android:id="@+id/ArabicDua"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                         android:layout_marginBottom="5dp"
                         android:background="@drawable/round_shape">
 
-                        <TextView
+                        <com.android.zaderaah.Session.ZoomTextView
                             android:id="@+id/TranslationU"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -129,7 +129,7 @@
                         android:layout_marginBottom="5dp"
                         android:background="@drawable/round_shape">
 
-                        <TextView
+                        <com.android.zaderaah.Session.ZoomTextView
                             android:id="@+id/TranslationE"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
