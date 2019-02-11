@@ -28,7 +28,7 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         myApplication = (MyApplication) getApplicationContext();
-        getSupportActionBar().setTitle(myApplication.getOptions());
+        getSupportActionBar().setTitle("Home");
 
 
 //        findViewById(R.id.MapImage).setOnClickListener(new View.OnClickListener() {
@@ -69,28 +69,20 @@ public class Home extends AppCompatActivity {
         findViewById(R.id.Hajj).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (myApplication.getOptions().equals("Hajj"))
                 startActivity(new Intent(getApplicationContext(), Map1.class));
-                else {
-                    startActivity(new Intent(getApplicationContext(), Umrah_Map.class));
-                }
+            }
+        });
+
+        findViewById(R.id.KMMap).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), KMhajjmap.class));
             }
         });
         findViewById(R.id.AddNew).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-
-                {
-                    if (getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO},
-                                MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-                    } else {
-                        startActivity(new Intent(getApplicationContext(), AddNew.class));
-
-                    }
-                }
+                startActivity(new Intent(getApplicationContext(), Umrah_Map.class));
 
             }
         });

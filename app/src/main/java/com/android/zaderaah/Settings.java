@@ -15,7 +15,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         myApplication = (MyApplication) getApplicationContext();
-        getSupportActionBar().setTitle(myApplication.getOptions() + " Prayer's");
+        getSupportActionBar().setTitle("Settings");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

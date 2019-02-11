@@ -1,12 +1,17 @@
 package com.android.zaderaah;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -38,7 +43,8 @@ public class PrayList extends AppCompatActivity {
     MyApplication myApplication;
     DataBaseHelper1 dataBaseHelper1;
 
-    DBManager1 dbManager1;
+    DBManager1 dbManager1;    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 29;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +61,13 @@ public class PrayList extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(), "Error in Database", Toast.LENGTH_LONG).show();
         }
-        getSupportActionBar().setTitle(myApplication.getOptions() + " Prayer's");
+        if (myApplication.getLanguage().equals("eng"))
+        {
+            getSupportActionBar().setTitle(myApplication.getOptions() + " Prayer's");
+        }else {
+            getSupportActionBar().setTitle("دعائیں ");
+        }
+
 
         GetDataFromDatabase();
 
@@ -249,7 +261,7 @@ public class PrayList extends AppCompatActivity {
         } catch (Exception e) {
 //            return;
         }
-        GetDataFromDatabase();
+//        GetDataFromDatabase();
     }
 
 
@@ -377,12 +389,42 @@ public class PrayList extends AppCompatActivity {
         // display a message when a button was pressed
 
         if (item.getItemId() == R.id.add) {
-          startActivity(new Intent(getApplicationContext(),AddNew.class));
+
+
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+
+            {
+                if (getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO},
+                            MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+                } else {
+                    startActivity(new Intent(getApplicationContext(), AddNew.class));
+
+                }
+            }
         }
 
 
 
         return true;
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE: {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d("Home", "Permission Granted");
+                    startActivity(new Intent(getApplicationContext(), AddNew.class));
+                } else {
+                    Log.d("Home", "Permission Failed");
+                    Toast.makeText(getApplicationContext(), "You must allow permission record audio to your mobile device.", Toast.LENGTH_SHORT).show();
+                }
+            }
+            // Add additional cases for other permissions you may have asked for
+        }
     }
 
 
