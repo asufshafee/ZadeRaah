@@ -26,6 +26,7 @@ public class History extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_pray_list);
         myApplication = (MyApplication) getApplicationContext();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
