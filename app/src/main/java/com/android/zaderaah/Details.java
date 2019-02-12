@@ -182,31 +182,28 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
 
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            counterplay=counterplay-1;
-                            if (counterplay!=0)
+
+                            if (myApplication.getCurrent().getAudiopath().equals(""))
                             {
-                                if (myApplication.getCurrent().getAudiopath().equals(""))
-                                {
-                                    AudioWife.getInstance()
-                                            .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
-                                            .setPlayView(mPlayMedia)
-                                            .setPauseView(mPauseMedia)
-                                            .setSeekBar(mMediaSeekBar)
-                                            .setRuntimeView(mRunTime)
-                                            .setTotalTimeView(mTotalTime).play();
-                                }else {
-                                    AudioWife.getInstance()
-                                            .init(getApplication(), Uri.parse(myApplication.getCurrent().getAudiopath()))
-                                            .setPlayView(mPlayMedia)
-                                            .setPauseView(mPauseMedia)
-                                            .setSeekBar(mMediaSeekBar)
-                                            .setRuntimeView(mRunTime)
-                                            .setTotalTimeView(mTotalTime).play();
-                                }
+                                AudioWife.getInstance()
+                                        .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
+                                        .setPlayView(mPlayMedia)
+                                        .setPauseView(mPauseMedia)
+                                        .setSeekBar(mMediaSeekBar)
+                                        .setRuntimeView(mRunTime)
+                                        .setTotalTimeView(mTotalTime).play();
                             }else {
-                                counterplay=Integer.parseInt(myApplication.getCurrent().getCounter());
+                                AudioWife.getInstance()
+                                        .init(getApplication(), Uri.parse(myApplication.getCurrent().getAudiopath()))
+                                        .setPlayView(mPlayMedia)
+                                        .setPauseView(mPauseMedia)
+                                        .setSeekBar(mMediaSeekBar)
+                                        .setRuntimeView(mRunTime)
+                                        .setTotalTimeView(mTotalTime).play();
                             }
-                            Toast.makeText(getBaseContext(), "Completed", Toast.LENGTH_SHORT).show();
+
+
+
                         }
                     });
 
@@ -440,4 +437,16 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
 
     }
 
+    @Override
+    protected void onDestroy() {
+        try
+        {
+            AudioWife.getInstance().pause();
+        }catch (Exception Ex)
+        {
+
+        }
+
+        super.onDestroy();
+    }
 }

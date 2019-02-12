@@ -16,6 +16,8 @@ public class MyApplication extends Application {
     List<DuaObj> List;
     String First;
 
+    Boolean Check=false;
+
     public java.util.List<DuaObj> getList() {
         return List;
     }
@@ -29,8 +31,16 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+
     }
 
+    public Boolean getCheck() {
+        return Check;
+    }
+
+    public void setCheck(Boolean check) {
+        Check = check;
+    }
 
     public Boolean getFirst() {
         SharedPreferences prefs = getSharedPreferences("MainOne", MODE_PRIVATE);
