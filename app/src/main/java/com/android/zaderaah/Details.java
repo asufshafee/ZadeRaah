@@ -159,7 +159,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
 
                 try {
 
-                    if (myApplication.getCurrent().getAudiopath().equals(""))
+                    if ( myApplication.getCurrent().getAudiopath()==null ||myApplication.getCurrent().getAudiopath().equals("") )
                     {
                         AudioWife.getInstance()
                                 .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
@@ -185,7 +185,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
 
                           try
                           {
-                              if (myApplication.getCurrent().getAudiopath().equals(""))
+                              if ( myApplication.getCurrent().getAudiopath()==null ||myApplication.getCurrent().getAudiopath().equals("") )
                               {
                                   AudioWife.getInstance()
                                           .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
@@ -311,7 +311,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
 
         try {
 
-            if (myApplication.getCurrent().getAudiopath().equals(""))
+            if ( myApplication.getCurrent().getAudiopath()==null ||myApplication.getCurrent().getAudiopath().equals("") )
             {
                 AudioWife.getInstance()
                         .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
@@ -358,13 +358,13 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                 }
             });
         } catch (Exception e) {
-            AudioWife.getInstance()
-                    .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
-                    .setPlayView(mPlayMedia)
-                    .setPauseView(mPauseMedia)
-                    .setSeekBar(mMediaSeekBar)
-                    .setRuntimeView(mRunTime)
-                    .setTotalTimeView(mTotalTime);
+//            AudioWife.getInstance()
+//                    .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
+//                    .setPlayView(mPlayMedia)
+//                    .setPauseView(mPauseMedia)
+//                    .setSeekBar(mMediaSeekBar)
+//                    .setRuntimeView(mRunTime)
+//                    .setTotalTimeView(mTotalTime);
         }
 
     }
