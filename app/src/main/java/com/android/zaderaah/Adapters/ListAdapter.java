@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,12 +32,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         public TextView Name;
         public ImageView Image;
         MaterialFavoriteButton Fav;
+        MaterialFavoriteButton Star;
 
 
         public MyViewHolder(View v) {
             super(v);
             Fav = v.findViewById(R.id.Favourite);
             Name = v.findViewById(R.id.Name);
+            Star=v.findViewById(R.id.Mem);
 
         }
     }
@@ -68,6 +71,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         if (myApplication.getLanguage().equals("Eng"))
             holder.Name.setText(mDataset.get(position).getEngTittle());
         else holder.Name.setText(mDataset.get(position).getUrduTittle());
+
+        holder.Name.setTextSize(TypedValue.COMPLEX_UNIT_PX, myApplication.getFornt());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +88,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
             holder.Fav.setFavorite(true);
         } else {
             holder.Fav.setFavorite(false);
+        }
+
+        if (mDataset.get(position).getHis().equals("true")) {
+            holder.Star.setFavorite(true);
+        } else {
+            holder.Star.setFavorite(false);
         }
 
 
@@ -101,6 +112,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
                 }
 
+            }
+        });
+
+        holder.Star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!mDataset.get(position).getHis().equals("true")) {
+                    holder.Star.setFavorite(true);
+                    dbManager.His(Long.valueOf(mDataset.get(position).getID()), true);
+                    mDataset.get(position).setHis(String.valueOf(true));
+
+                } else {
+                    holder.Star.setFavorite(false);
+                    dbManager.His(Long.valueOf(mDataset.get(position).getID()), false);
+                    mDataset.get(position).setHis(String.valueOf(false));
+
+                }
             }
         });
 

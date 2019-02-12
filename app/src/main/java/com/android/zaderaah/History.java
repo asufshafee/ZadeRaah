@@ -63,6 +63,7 @@ public class History extends AppCompatActivity {
         String Type = cursor.getString(9);
         String Type1 = cursor.getString(10);
         String Counter = cursor.getString(11);
+        String His = cursor.getString(12);
 
         DuaObj duaObj = new DuaObj();
         duaObj.setID(ID);
@@ -75,6 +76,7 @@ public class History extends AppCompatActivity {
         duaObj.setAudiopath(Audio);
         duaObj.setRoman(Type1);
         duaObj.setUrduTrans(UrduTranslate);
+        duaObj.setHis(His);
         duaObj.setCounter(Counter);
         if (Check.equals("true"))
             if (myApplication.getOptions().equals(Type))
@@ -92,6 +94,7 @@ public class History extends AppCompatActivity {
 
             Counter = cursor.getString(11);
             Check = cursor.getString(12);
+            His = cursor.getString(12);
             Type1 = cursor.getString(10);
 
             duaObj = new DuaObj();
@@ -104,6 +107,7 @@ public class History extends AppCompatActivity {
             duaObj.setUrduTittle(UrduTittle);
             duaObj.setUrduTrans(UrduTranslate);
             duaObj.setFav(Check);
+            duaObj.setHis(His);
             duaObj.setCounter(Counter);
             if (Check.equals("true"))
                 if (myApplication.getOptions().equals(Type))

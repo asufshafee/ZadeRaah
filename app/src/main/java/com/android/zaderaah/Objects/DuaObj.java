@@ -1,10 +1,17 @@
 package com.android.zaderaah.Objects;
 
 public class DuaObj {
-    String ID, EngTittle, DuaInArabic, EngRef, EngTrans, UrduTittle, UrduTrans, Fav, Audiopath, Type,Roman,Counter;
+    String ID, EngTittle, DuaInArabic, EngRef, EngTrans, UrduTittle, UrduTrans, Fav, Audiopath, Type,Roman,Counter,His;
     int imageid;
     String HtmlText="";
 
+    public String getHis() {
+        return His;
+    }
+
+    public void setHis(String his) {
+        His = his;
+    }
 
     public String getCounter() {
         return Counter;

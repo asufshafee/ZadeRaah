@@ -6,4 +6,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_umrah__map">Umrah_Map</string>
 
+    <array name="font">
+
+        <item>X-Small</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>X-large</item>
+        <item>XX-Large</item>
+
+    </array>
+
 </resources>

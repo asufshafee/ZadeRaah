@@ -24,4 +24,10 @@
         android:layout_height="wrap_content"
         app:mfb_type="heart" />
 
+    <com.github.ivbaranov.mfb.MaterialFavoriteButton
+        android:id="@+id/Mem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mfb_type="star" />
+
 </LinearLayout>
