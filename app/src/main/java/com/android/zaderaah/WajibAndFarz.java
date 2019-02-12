@@ -39,6 +39,7 @@ public class WajibAndFarz extends Fragment {
 
         myApplication=(MyApplication)getActivity().getApplicationContext();
         webView=view.findViewById(R.id.des);
+        webView.getSettings().setDefaultFontSize(myApplication.getFornt());
 
         if (myApplication.getOptions().equals("Hajj"))
         {

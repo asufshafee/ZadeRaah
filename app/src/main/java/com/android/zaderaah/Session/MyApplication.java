@@ -45,6 +45,21 @@ public class MyApplication extends Application {
         editor.commit();
     }
 
+
+
+    public int getFornt() {
+        SharedPreferences prefs = getSharedPreferences("MainOne", MODE_PRIVATE);
+        return prefs.getInt("Font", 30);
+
+    }
+
+    public void setFont(int first) {
+        SharedPreferences.Editor editor = getSharedPreferences("MainOne", MODE_PRIVATE).edit();
+        editor.putInt("Font", first);
+        editor.apply();
+        editor.commit();
+    }
+
     public DuaObj getCurrent() {
         return Current;
     }

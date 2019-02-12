@@ -55,6 +55,23 @@
             android:layout_height="match_parent">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Font Size"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/Font"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:entries="@array/font"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"></Spinner>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

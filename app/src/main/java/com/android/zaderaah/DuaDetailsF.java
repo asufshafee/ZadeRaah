@@ -5,10 +5,14 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +24,7 @@ import nl.changer.audiowife.AudioWife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DuaDetailsF extends Fragment {
+public class DuaDetailsF extends Fragment  implements AdapterView.OnItemSelectedListener{
 
 
     TextView ArabicDua, TranslationU,TranslationE,tittle;
@@ -60,6 +64,48 @@ public class DuaDetailsF extends Fragment {
         mRunTime = (TextView) view.findViewById(R.id.run_time);
         mTotalTime = (TextView) view.findViewById(R.id.total_time);
         tittle=view.findViewById(R.id.tittle);
+
+
+
+
+
+        Spinner spinner = (Spinner)view. findViewById(R.id.Font);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.font, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
+
+
+
+
+
+        if (myApplication.getFornt()==20)
+        {
+            spinner.setSelection(0);
+        }
+        if (myApplication.getFornt()==25)
+        {
+            spinner.setSelection(1);
+        }
+        if (myApplication.getFornt()==30)
+        {
+            spinner.setSelection(2);
+        }
+        if (myApplication.getFornt()==35)
+        {
+            spinner.setSelection(3);
+        }
+        if (myApplication.getFornt()==45)
+        {
+            spinner.setSelection(4);
+        }
+        if (myApplication.getFornt()==55)
+        {
+            spinner.setSelection(5);
+        }
+
 
         view.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +182,48 @@ public class DuaDetailsF extends Fragment {
 
 
         return view;
+    }
+
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+
+
+        if (pos==0)
+        {
+            myApplication.setFont(20);
+        }
+        if (pos==1)
+        {
+            myApplication.setFont(25);
+        }
+        if (pos==2)
+        {
+            myApplication.setFont(30);
+        }
+        if (pos==3)
+        {
+            myApplication.setFont(35);
+        }
+        if (pos==4)
+        {
+            myApplication.setFont(45);
+        }
+        if (pos==5)
+        {
+            myApplication.setFont(55);
+        }
+        tittle.setTextSize(TypedValue.COMPLEX_UNIT_PX, myApplication.getFornt());
+        TranslationU.setTextSize(TypedValue.COMPLEX_UNIT_PX, myApplication.getFornt());
+        ArabicDua.setTextSize(TypedValue.COMPLEX_UNIT_PX, myApplication.getFornt());
+        TranslationE.setTextSize(TypedValue.COMPLEX_UNIT_PX, myApplication.getFornt());
+
+
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
 }

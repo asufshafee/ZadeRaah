@@ -252,7 +252,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/settingsicon"
+                    android:src="@drawable/ic_star_black_24dp"
                     android:tint="@android:color/white" />
 
 
@@ -261,7 +261,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:text="History"
+                    android:text="Memorization"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white" />
             </LinearLayout>

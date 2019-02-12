@@ -40,6 +40,8 @@ public class AddNew extends AppCompatActivity {
         Roman=findViewById(R.id.Roman);
         Counter=findViewById(R.id.Counter);
 
+
+
         findViewById(R.id.Save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

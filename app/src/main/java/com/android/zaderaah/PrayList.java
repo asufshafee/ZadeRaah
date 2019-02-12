@@ -15,6 +15,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.zaderaah.Adapters.ListAdapter;
@@ -33,7 +37,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class PrayList extends AppCompatActivity {
+public class PrayList extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
 
     private List<DuaObj> praylist = new ArrayList<>();
@@ -71,6 +75,45 @@ public class PrayList extends AppCompatActivity {
         }
 
 
+
+        Spinner spinner = (Spinner) findViewById(R.id.Font);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.font, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
+
+
+
+
+
+        if (myApplication.getFornt()==20)
+        {
+            spinner.setSelection(0);
+        }
+        if (myApplication.getFornt()==25)
+        {
+            spinner.setSelection(1);
+        }
+        if (myApplication.getFornt()==30)
+        {
+            spinner.setSelection(2);
+        }
+        if (myApplication.getFornt()==35)
+        {
+            spinner.setSelection(3);
+        }
+        if (myApplication.getFornt()==45)
+        {
+            spinner.setSelection(4);
+        }
+        if (myApplication.getFornt()==55)
+        {
+            spinner.setSelection(5);
+        }
+
+
         GetDataFromDatabase();
 
     }
@@ -102,6 +145,7 @@ public class PrayList extends AppCompatActivity {
             String Type = cursor.getString(9);
             String Roman = cursor.getString(10);
             String Counter = cursor.getString(11);
+            String His = cursor.getString(12);
 
 
             DuaObj duaObj = new DuaObj();
@@ -115,6 +159,7 @@ public class PrayList extends AppCompatActivity {
             duaObj.setAudiopath(Audio);
             duaObj.setRoman(Roman);
             duaObj.setCounter(Counter);
+            duaObj.setHis(His);
             Log.d("",Roman);
             if (Roman==null)
                 Log.d("","");
@@ -138,6 +183,7 @@ public class PrayList extends AppCompatActivity {
                 Type = cursor.getString(9);
                 Roman = cursor.getString(10);
                  Counter = cursor.getString(11);
+                His = cursor.getString(12);
 
                 duaObj = new DuaObj();
                 duaObj.setID(ID);
@@ -150,6 +196,7 @@ public class PrayList extends AppCompatActivity {
                 duaObj.setFav(Check);
                 duaObj.setRoman(Roman);
                 Log.d("",Roman);
+                duaObj.setHis(His);
                 duaObj.setAudiopath(Audio);
                 duaObj.setCounter(Counter);
                 if (Roman==null)
@@ -497,5 +544,49 @@ public class PrayList extends AppCompatActivity {
     protected void onResume() {
         GetDataFromDatabase();
         super.onResume();
+    }
+
+
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+
+
+        if (pos==0)
+        {
+            myApplication.setFont(20);
+        }
+        if (pos==1)
+        {
+            myApplication.setFont(25);
+        }
+        if (pos==2)
+        {
+            myApplication.setFont(30);
+        }
+        if (pos==3)
+        {
+            myApplication.setFont(35);
+        }
+        if (pos==4)
+        {
+            myApplication.setFont(45);
+        }
+        if (pos==5)
+        {
+            myApplication.setFont(55);
+        }
+
+
+
+        ShowList();
+
+
+
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
