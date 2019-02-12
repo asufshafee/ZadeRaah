@@ -8,12 +8,12 @@
 
     <array name="font">
 
-        <item>X-Small</item>
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-        <item>X-large</item>
-        <item>XX-Large</item>
+        <item>"12"</item>
+        <item>"13"</item>
+        <item>"14"</item>
+        <item>"15"</item>
+        <item>"16"</item>
+        <item>"17"</item>
 
     </array>
 
