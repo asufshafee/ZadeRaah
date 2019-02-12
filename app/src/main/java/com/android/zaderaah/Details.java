@@ -248,40 +248,6 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-        AudioWife.getInstance().addOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                AudioWife.getInstance()
-                        .init(getApplication(), Uri.parse("android.resource://"+getPackageName()+"/raw/dua"+myApplication.getCurrent().getID()))
-                        .setPlayView(mPlayMedia)
-                        .setPauseView(mPauseMedia)
-                        .setSeekBar(mMediaSeekBar)
-                        .setRuntimeView(mRunTime)
-                        .setTotalTimeView(mTotalTime).play();
-                // do you stuff
-            }
-        });
-
-        AudioWife.getInstance().addOnPlayClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Play", Toast.LENGTH_SHORT)
-                        .show();
-                // Lights-Camera-Action. Lets dance.
-            }
-        });
-
-        AudioWife.getInstance().addOnPauseClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Pause", Toast.LENGTH_SHORT)
-                        .show();
-                // Your on audio pause stuff.
-            }
-        });
 
 
     }
@@ -471,5 +437,17 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         }
 
         super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        try
+        {
+            AudioWife.getInstance().pause();
+        }catch (Exception Ex)
+        {
+
+        }
+        super.onPause();
     }
 }
